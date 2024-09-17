@@ -64,11 +64,12 @@ const App = () => {
         <h1>Phonebook</h1>
         <ContactForm addContact={addContact} />
         <SearchBox handleChange={handleChange} />
-        <ContactList
-          deleteContact={deleteContact}
-          contactList={contactList}
-          filtredContacts={filtredContacts}
-        />
+        {filtredContacts.length > 0 && (
+          <ContactList
+            contacts={filtredContacts}
+            deleteContact={deleteContact}
+          />
+        )}
       </div>
     </>
   );
